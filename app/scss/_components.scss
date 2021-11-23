@@ -1,0 +1,239 @@
+@use 'utility' as *;
+
+.report {
+	display: grid;
+	row-gap: 2.4rem;
+
+	@include breakpoint(large) {
+		grid-template-rows: repeat(2, 1fr);
+		grid-template-columns: repeat(4, 20rem);
+		grid-template-areas:
+			'person work play study'
+			'person exercise social selfCare';
+		column-gap: 2.4rem;
+	}
+
+	@include breakpoint(xlarge) {
+		grid-template-columns: repeat(4, 25.5rem);
+		column-gap: 3rem;
+		row-gap: 3rem;
+	}
+
+	&__content {
+		border-radius: 15px;
+		&:first-child {
+			background-color: var(--darkBlue);
+		}
+		&:not(:first-child) {
+			padding-top: 4rem;
+			cursor: pointer;
+
+			@include breakpoint(large) {
+				display: grid;
+				padding-top: 4.5rem;
+			}
+		}
+	}
+
+	&__person {
+		@include breakpoint(large) {
+			grid-area: person;
+		}
+
+		&-inner {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			column-gap: 2rem;
+			padding: 3.5rem;
+			background-color: var(--blue);
+			border-radius: 15px;
+
+			@include breakpoint(large) {
+				flex-direction: column;
+				align-items: flex-start;
+				padding-left: 3.2rem;
+				padding-bottom: 8rem;
+			}
+		}
+
+		&-img {
+			width: 6.4rem;
+			height: 6.4rem;
+			border-radius: 50%;
+			border: 3px solid var(--white);
+
+			@include breakpoint(large) {
+				margin-bottom: 4.3rem;
+				width: 7.8rem;
+				height: 7.8rem;
+			}
+		}
+	}
+
+	&__status {
+		&-for {
+			font-size: 1.5rem;
+			color: var(--paleBlue);
+			margin-bottom: 0.4rem;
+		}
+	}
+
+	&__period {
+		padding: 2.4rem;
+		display: flex;
+		justify-content: space-between;
+
+		&-text {
+			color: var(--lightBlue);
+			cursor: pointer;
+			transition: 0.4s;
+
+			&:hover {
+				color: var(--white);
+			}
+
+			&.active {
+				color: var(--white);
+			}
+		}
+
+		@include breakpoint(large) {
+			padding: 2.6rem 3.2rem;
+			flex-direction: column;
+			row-gap: 1.2rem;
+		}
+	}
+
+	&__inner {
+		width: 100%;
+		padding: 2.8rem 2.4rem;
+		background-color: var(--darkBlue);
+		border-radius: 15px;
+		transition: background-color 0.4s;
+
+		&:hover {
+			background-color: var(--hoverBlue);
+		}
+
+		@include breakpoint(large) {
+			padding: 3rem;
+		}
+	}
+
+	&__title {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin-bottom: 0.6rem;
+	}
+
+	&__ellipsis {
+		cursor: pointer;
+	}
+
+	&__data {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+
+		&-previous {
+			font-size: 1.5rem;
+			font-weight: 300;
+			color: var(--paleBlue);
+		}
+
+		@include breakpoint(large) {
+			flex-direction: column;
+			align-items: flex-start;
+		}
+	}
+
+	/* Work */
+	&__work {
+		background-color: var(--work);
+		@include icon-relative;
+
+		&::after {
+			content: url('../images/icon-work.svg');
+			@include icon-position;
+		}
+		@include breakpoint(large) {
+			grid-area: work;
+		}
+	}
+
+	/* Play */
+	&__play {
+		background-color: var(--play);
+		@include icon-relative;
+
+		&::after {
+			content: url('../images/icon-play.svg');
+			@include icon-position;
+		}
+		@include breakpoint(large) {
+			grid-area: play;
+		}
+	}
+
+	/* Study */
+	&__study {
+		background-color: var(--study);
+		@include icon-relative;
+
+		&::after {
+			content: url('../images/icon-study.svg');
+			@include icon-position;
+		}
+		@include breakpoint(large) {
+			grid-area: study;
+		}
+	}
+
+	/* Exercise */
+	&__exercise {
+		background-color: var(--exercise);
+		@include icon-relative;
+
+		&::after {
+			content: url('../images/icon-exercise.svg');
+			@include icon-position;
+			top: -0.1rem;
+		}
+
+		@include breakpoint(large) {
+			grid-area: exercise;
+		}
+	}
+
+	/* Social */
+	&__social {
+		background-color: var(--social);
+		@include icon-relative;
+
+		&::after {
+			content: url('../images/icon-social.svg');
+			@include icon-position;
+		}
+
+		@include breakpoint(large) {
+			grid-area: social;
+		}
+	}
+
+	/* Self Care */
+	&__care {
+		background-color: var(--selfCare);
+		@include icon-relative;
+
+		&::after {
+			content: url('../images/icon-self-care.svg');
+			@include icon-position;
+		}
+
+		@include breakpoint(large) {
+			grid-area: selfCare;
+		}
+	}
+}

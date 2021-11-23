@@ -1,0 +1,23 @@
+@use 'utility' as *;
+
+.main {
+	background-color: var(--veryDarkBlue);
+	min-height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.wrapper {
+	max-width: 32.7rem;
+	margin: 0 auto;
+	padding-top: 8rem;
+	padding-bottom: 8rem;
+
+	@include breakpoint(large) {
+		max-width: 96rem;
+	}
+	@include breakpoint(xlarge) {
+		max-width: 114rem;
+	}
+}
