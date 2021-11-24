@@ -88,6 +88,8 @@
 			color: var(--lightBlue);
 			cursor: pointer;
 			transition: 0.4s;
+			background-color: transparent;
+			border: none;
 
 			&:hover {
 				color: var(--white);
@@ -101,6 +103,7 @@
 		@include breakpoint(large) {
 			padding: 2.6rem 3.2rem;
 			flex-direction: column;
+			align-items: flex-start;
 			row-gap: 1.2rem;
 		}
 	}
